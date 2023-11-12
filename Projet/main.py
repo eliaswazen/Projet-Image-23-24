@@ -1,11 +1,12 @@
 from Image import Image
 # from Pieton import  Pieton
 # from Car import  Car
-from CarPedestrian import  CarPedestrian
+#from CarPedestrian import  CarPedestrian
+from All import  All
 
 if __name__ == '__main__':
     # pieton = Pieton()
-    CarPedestrian = CarPedestrian()
+    All = All()
     # image_test = Image("pedestrians.avi")
     # image_test.redimention(600,600)
     # image_test.rotation()
