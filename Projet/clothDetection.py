@@ -105,6 +105,7 @@ hat_img = cv2.imread("Images/hat.png", -1)
 
 # Load video
 cap = cv2.VideoCapture("Videos/pedestrians.avi")
+# cap = cv2.VideoCapture(0)
 
 # Create a tkinter window
 root = tk.Tk()
