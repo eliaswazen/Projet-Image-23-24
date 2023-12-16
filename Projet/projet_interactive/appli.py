@@ -340,7 +340,7 @@ class VideoApp:
         self.btn_stop.config(bg="lightgray")
 
         # Load YOLO
-        self.net = cv2.dnn.readNet("../yolo/yolov3.weights", "../yolo/yolov3.cfg")
+        self.net = cv2.dnn.readNet("../yolo/yolov3-tiny.weights", "../yolo/yolov3-tiny.cfg")
         self.classes = []
 
         if self.is_webcam:
@@ -488,21 +488,29 @@ class VideoApp:
                 color = (int(random_c[0]), int(random_c[1]), int(random_c[2]))
                 cv2.putText(frame, class_name, (x, y - 10), cv2.FONT_HERSHEY_PLAIN, 3, color, 2)
                 cv2.rectangle(frame, (x, y), (x + w, y + h), color, 3)
-            elif class_id == 67 and self.is_phone:
+            if class_id == 67 and self.is_phone:
                 (x, y, w, h) = bbox
                 class_name = self.classes[class_id]
                 random_c = np.random.randint(256, size=3)
                 color = (int(random_c[0]), int(random_c[1]), int(random_c[2]))
                 cv2.putText(frame, class_name, (x, y - 10), cv2.FONT_HERSHEY_PLAIN, 3, color, 2)
                 cv2.rectangle(frame, (x, y), (x + w, y + h), color, 3)
-            elif class_id == 64 and self.is_mouse:
+            if class_id == 64 and self.is_mouse:
                 (x, y, w, h) = bbox
                 class_name = self.classes[class_id]
                 random_c = np.random.randint(256, size=3)
                 color = (int(random_c[0]), int(random_c[1]), int(random_c[2]))
                 cv2.putText(frame, class_name, (x, y - 10), cv2.FONT_HERSHEY_PLAIN, 3, color, 2)
                 cv2.rectangle(frame, (x, y), (x + w, y + h), color, 3)
-            elif class_id == 73 and self.is_book:
+            if class_id == 73 and self.is_book:
+                print("book detection")
+                (x, y, w, h) = bbox
+                class_name = self.classes[class_id]
+                random_c = np.random.randint(256, size=3)
+                color = (int(random_c[0]), int(random_c[1]), int(random_c[2]))
+                cv2.putText(frame, class_name, (x, y - 10), cv2.FONT_HERSHEY_PLAIN, 3, color, 2)
+                cv2.rectangle(frame, (x, y), (x + w, y + h), color, 3)
+            if class_id == 74 and self.is_book:
                 print("book detection")
                 (x, y, w, h) = bbox
                 class_name = self.classes[class_id]
